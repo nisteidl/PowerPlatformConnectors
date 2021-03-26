@@ -489,6 +489,37 @@
         }
       }
     },
+    "/v2/v1.0/planner/plans": {
+      "post": {
+        "summary": "Create a plan",
+        "description": "Create a plan in Planner for the specified group.",
+        "operationId": "CreatePlan_V2",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatePlan_Request_V2"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "default",
+            "schema": {
+              "$ref": "#/definitions/CreatePlan_Response_V2"
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-api-annotation": {
+          "status": "Production",
+          "family": "CreatePlan",
+          "revision": 2
+        }
+      }
+    },
     "/v1.0/planner/tasks/{id}/details": {
       "get": {
         "summary": "Get task details",
@@ -1218,6 +1249,79 @@
           "type": "string",
           "x-ms-summary": "Next link",
           "x-ms-visibility": "internal"
+        }
+      }
+    },
+    "CreatePlan_Request_V2": {
+      "required": [
+        "title",
+        "owner"
+      ],
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the plan",
+          "x-ms-summary": "Title"
+        },
+        "owner": {
+          "description": "The group that will own the plan.",
+          "type": "string",
+          "x-ms-summary": "Owner",
+          "x-ms-dynamic-values": {
+            "operationId": "ListGroups",
+            "value-collection": "value",
+            "value-path": "id",
+            "value-title": "displayName"
+          }
+        }
+      }
+    },
+    "CreatePlan_Response_V2": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "description": "The display name of the user who created this plan.",
+                  "type": "string",
+                  "x-ms-summary": "Display Name"
+                },
+                "id": {
+                  "description": "The id of the user who created this plan.",
+                  "type": "string",
+                  "x-ms-summary": "Id"
+                }
+              },
+              "x-ms-summary": "User"
+            }
+          },
+          "x-ms-summary": "Plan Created By"
+        },
+        "createdDateTime": {
+          "format": "date-time",
+          "description": "The datetime the plan was created.",
+          "type": "string",
+          "x-ms-summary": "Plan Created Date+Time"
+        },
+        "id": {
+          "description": "The id of the plan.",
+          "type": "string",
+          "x-ms-summary": "Plan Id"
+        },
+        "owner": {
+          "description": "The group that owns the plan.",
+          "type": "string",
+          "x-ms-summary": "Plan Owner (Group)"
+        },
+        "title": {
+          "description": "The title of the plan",
+          "type": "string",
+          "x-ms-summary": "Plan Title"
         }
       }
     },

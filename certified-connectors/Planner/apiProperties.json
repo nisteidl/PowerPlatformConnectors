@@ -318,7 +318,88 @@
         },
         "templateId": "setQueryParameter",
         "title": "Set $select query parameter for groups"
-      }, {
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "ListMyTasks_V2"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/me/planner/tasks"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to ListMyTasks API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "ListTasks_V3"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/plans/{id}/tasks"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to ListTasks API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "CreateBucket_V2"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/buckets"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to CreateBucket API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "ListBuckets_V3"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/plans/{id}/buckets"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to ListBuckets API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "CreatePlan_V2"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/plans"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to CreatePlan API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "CreateTask_V3"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/tasks"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to CreateTask API"
+      },
+      {
+        "parameters": {
+          "x-ms-apimTemplate-operationName": [
+            "GetTask_V2",
+            "UpdateTask_V3",
+            "UnassignUsers",
+            "AssignUsers"
+          ],
+          "x-ms-apimTemplateParameter.httpMethod": "@Request.OriginalHTTPMethod",
+          "x-ms-apimTemplateParameter.newPath": "/v1.0/planner/tasks/{id}"
+        },
+        "templateId": "routerequesttoendpoint",
+        "title": "Redirect to Task API"
+      },
+      {
         "parameters": {
           "x-ms-apimTemplate-operationName": [
             "UpdateTask_V3",
