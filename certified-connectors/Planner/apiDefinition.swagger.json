@@ -508,7 +508,7 @@
           "201": {
             "description": "default",
             "schema": {
-              "$ref": "#/definitions/CreatePlan_Response_V2"
+              "$ref": "#/definitions/Plan_Response_V2"
             }
           }
         },
@@ -1313,7 +1313,7 @@
         }
       }
     },
-    "CreatePlan_Response_V2": {
+    "Plan_Response_V2": {
       "type": "object",
       "properties": {
         "createdBy": {
