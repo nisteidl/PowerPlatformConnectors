@@ -1021,11 +1021,47 @@
           "type": "string",
           "x-ms-summary": "Completed Date Time"
         },
+        "completedBy": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "description": "The display name of the user who marked the task complete.",
+                  "type": "string",
+                  "x-ms-summary": "Display Name"
+                },
+                "id": {
+                  "description": "The id of the user who marked the task complete.",
+                  "type": "string",
+                  "x-ms-summary": "Id"
+                }
+              },
+              "x-ms-summary": "User"
+            }
+          },
+          "x-ms-summary": "Completed By"
+        },
         "referenceCount": {
           "format": "int32",
           "description": "The number of external references that exist on the task.",
           "type": "integer",
           "x-ms-summary": "Reference Count",
+          "x-ms-visibility": "advanced"
+        },
+        "checklistItemCount": {
+          "format": "int32",
+          "description": "The number of checklist items on the task (both active and complete).",
+          "type": "integer",
+          "x-ms-summary": "Checklist Item Count",
+          "x-ms-visibility": "advanced"
+        },
+        "activeChecklistItemCount": {
+          "format": "int32",
+          "description": "The number of active checklist items on the task.",
+          "type": "integer",
+          "x-ms-summary": "Active Checklist Item Count",
           "x-ms-visibility": "advanced"
         },
         "id": {
